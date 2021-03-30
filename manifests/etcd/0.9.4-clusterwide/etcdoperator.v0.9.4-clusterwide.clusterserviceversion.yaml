@@ -6,7 +6,7 @@ metadata:
       ,\n    \"kind\": \"EtcdCluster\",\n    \"metadata\": {\n      \"name\": \"example\"\
       ,\n      \"annotations\": {\n        \"etcd.database.coreos.com/scope\": \"\
       clusterwide\"\n      }\n    },\n    \"spec\": {\n      \"size\": 3,\n      \"\
-      version\": \"3.2.13-ppc64le\"\n    }\n  },\n  {\n    \"apiVersion\": \"etcd.database.coreos.com/v1beta2\"\
+      version\": \"3.5.0-alpha.0-s390x\"\n    }\n  },\n  {\n    \"apiVersion\": \"etcd.database.coreos.com/v1beta2\"\
       ,\n    \"kind\": \"EtcdRestore\",\n    \"metadata\": {\n      \"name\": \"example-etcd-cluster-restore\"\
       \n    },\n    \"spec\": {\n      \"etcdCluster\": {\n        \"name\": \"example-etcd-cluster\"\
       \n      },\n      \"backupStorageType\": \"S3\",\n      \"s3\": {\n        \"\
@@ -18,7 +18,7 @@ metadata:
       ,\n        \"awsSecret\": \"<aws-secret>\"\n      }\n    }\n  }\n]\n"
     capabilities: Full Lifecycle
     categories: Database
-    containerImage: quay.io/kandarpamalipeddi/etcd-operator@sha256:6c83bf9b1e63152cc116132f291e1b09c33aa4d28cb7cb9fe46dd0b53c877e10
+    containerImage: quay.io/wgxinke/etcd-operator@sha256:1155e878bd8e13a23819e3f1a228ae146f360ba6d791239fcd87fe52f2de956f
     createdAt: 2019-02-28 01:03:00
     description: Create and maintain highly-available etcd clusters on Kubernetes
     repository: https://github.com/coreos/etcd-operator
@@ -240,7 +240,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.name
-                image: quay.io/kandarpamalipeddi/etcd-operator@sha256:6c83bf9b1e63152cc116132f291e1b09c33aa4d28cb7cb9fe46dd0b53c877e10
+                image: quay.io/wgxinke/etcd-operator@sha256:1155e878bd8e13a23819e3f1a228ae146f360ba6d791239fcd87fe52f2de956f
                 name: etcd-operator
               - command:
                 - etcd-backup-operator
@@ -254,7 +254,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.name
-                image: quay.io/kandarpamalipeddi/etcd-operator@sha256:6c83bf9b1e63152cc116132f291e1b09c33aa4d28cb7cb9fe46dd0b53c877e10
+                image: quay.io/wgxinke/etcd-operator@sha256:1155e878bd8e13a23819e3f1a228ae146f360ba6d791239fcd87fe52f2de956f
                 name: etcd-backup-operator
               - command:
                 - etcd-restore-operator
@@ -268,7 +268,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.name
-                image: quay.io/kandarpamalipeddi/etcd-operator@sha256:6c83bf9b1e63152cc116132f291e1b09c33aa4d28cb7cb9fe46dd0b53c877e10
+                image: quay.io/wgxinke/etcd-operator@sha256:1155e878bd8e13a23819e3f1a228ae146f360ba6d791239fcd87fe52f2de956f
                 name: etcd-restore-operator
               serviceAccountName: etcd-operator
     strategy: deployment

@@ -125,7 +125,7 @@ spec:
                 command:
                 - etcd-operator
                 - --create-crd=false
-                image: quay.io/kandarpamalipeddi/etcd-operator@sha256:6c83bf9b1e63152cc116132f291e1b09c33aa4d28cb7cb9fe46dd0b53c877e10
+                image: quay.io/wgxinke/etcd-operator@sha256:1155e878bd8e13a23819e3f1a228ae146f360ba6d791239fcd87fe52f2de956f
                 env:
                 - name: MY_POD_NAMESPACE
                   valueFrom:
@@ -136,7 +136,7 @@ spec:
                     fieldRef:
                       fieldPath: metadata.name
               - name: etcd-backup-operator
-                image: quay.io/kandarpamalipeddi/etcd-operator@sha256:6c83bf9b1e63152cc116132f291e1b09c33aa4d28cb7cb9fe46dd0b53c877e10
+                image: quay.io/wgxinke/etcd-operator@sha256:1155e878bd8e13a23819e3f1a228ae146f360ba6d791239fcd87fe52f2de956f
                 command:
                 - etcd-backup-operator
                 - --create-crd=false
@@ -150,7 +150,7 @@ spec:
                     fieldRef:
                       fieldPath: metadata.name
               - name: etcd-restore-operator
-                image: quay.io/kandarpamalipeddi/etcd-operator@sha256:6c83bf9b1e63152cc116132f291e1b09c33aa4d28cb7cb9fe46dd0b53c877e10
+                image: quay.io/wgxinke/etcd-operator@sha256:1155e878bd8e13a23819e3f1a228ae146f360ba6d791239fcd87fe52f2de956f
                 command:
                 - etcd-restore-operator
                 - --create-crd=false
