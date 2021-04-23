@@ -125,7 +125,7 @@ spec:
                 command:
                 - etcd-operator
                 - --create-crd=false
-                image: quay.io/wgxinke/etcd-operator@sha256:1155e878bd8e13a23819e3f1a228ae146f360ba6d791239fcd87fe52f2de956f
+                image: ibmcom/etcd-operator
                 env:
                 - name: MY_POD_NAMESPACE
                   valueFrom:
@@ -136,7 +136,7 @@ spec:
                     fieldRef:
                       fieldPath: metadata.name
               - name: etcd-backup-operator
-                image: quay.io/wgxinke/etcd-operator@sha256:1155e878bd8e13a23819e3f1a228ae146f360ba6d791239fcd87fe52f2de956f
+                image: ibmcom/etcd-operator
                 command:
                 - etcd-backup-operator
                 - --create-crd=false
@@ -150,7 +150,7 @@ spec:
                     fieldRef:
                       fieldPath: metadata.name
               - name: etcd-restore-operator
-                image: quay.io/wgxinke/etcd-operator@sha256:1155e878bd8e13a23819e3f1a228ae146f360ba6d791239fcd87fe52f2de956f
+                image: ibmcom/etcd-operator
                 command:
                 - etcd-restore-operator
                 - --create-crd=false
