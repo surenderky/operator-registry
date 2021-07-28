@@ -5,7 +5,7 @@ metadata:
   namespace: placeholder
   annotations:
     alm-examples: >-
-      [{"apiVersion":"redis.redis.opstreelabs.in/v1beta1","kind":"Redis","metadata":{"name":"redis-standalone"},"spec":{"redisExporter":{"enabled":true,"image":"image-registry.openshift-image-registry.svc:5000/openshift/redis-exporter:latest","imagePullPolicy":"Always","resources":{"requests":{"cpu":"100m","memory":"128Mi"},"limits":{"cpu":"100m","memory":"128Mi"}}},"kubernetesConfig":{"image":"image-registry.openshift-image-registry.svc:5000/openshift/redis:v6.2","imagePullPolicy":"IfNotPresent","resources":{"requests":{"cpu":"101m","memory":"128Mi"},"limits":{"cpu":"101m","memory":"128Mi"}},"redisSecret":{"name":"redis-secret","key":"password"},"serviceType":"LoadBalancer"},"redisConfig":{},"storage":{"volumeClaimTemplate":{"spec":{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"1Gi"}}}}}}},{"apiVersion":"redis.redis.opstreelabs.in/v1beta1","kind":"RedisCluster","metadata":{"name":"redis-cluster"},"spec":{"clusterSize":3,"kubernetesConfig":{"image":"image-registry.openshift-image-registry.svc:5000/openshift/redis:v6.2","imagePullPolicy":"IfNotPresent","resources":{"requests":{"cpu":"101m","memory":"128Mi"},"limits":{"cpu":"101m","memory":"128Mi"}},"redisSecret":{"name":"redis-secret","key":"password"},"serviceType":"ClusterIP"},"redisExporter":{"enabled":true,"image":"image-registry.openshift-image-registry.svc:5000/openshift/redis-exporter:latest","imagePullPolicy":"Always","resources":{"requests":{"cpu":"100m","memory":"128Mi"},"limits":{"cpu":"100m","memory":"128Mi"}}},"redisLeader":{"serviceType":"ClusterIP"},"redisFollower":{"serviceType":"ClusterIP"},"storage":{"volumeClaimTemplate":{"spec":{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"1Gi"}}}}}}}]
+      [{"apiVersion":"redis.redis.opstreelabs.in/v1beta1","kind":"Redis","metadata":{"name":"redis-standalone"},"spec":{"redisExporter":{"enabled":true,"image":"image-registry.openshift-image-registry.svc:5000/openshift/redis-exporter:latest","imagePullPolicy":"Always"},"kubernetesConfig":{"image":"image-registry.openshift-image-registry.svc:5000/openshift/redis:v6.2","imagePullPolicy":"IfNotPresent","redisSecret":{"name":"redis-secret","key":"password"},"serviceType":"LoadBalancer"},"redisConfig":{},"storage":{"volumeClaimTemplate":{"spec":{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"1Gi"}}}}}}},{"apiVersion":"redis.redis.opstreelabs.in/v1beta1","kind":"RedisCluster","metadata":{"name":"redis-cluster"},"spec":{"clusterSize":3,"kubernetesConfig":{"image":"image-registry.openshift-image-registry.svc:5000/openshift/redis:v6.2","imagePullPolicy":"IfNotPresent","redisSecret":{"name":"redis-secret","key":"password"},"serviceType":"ClusterIP"},"redisExporter":{"enabled":true,"image":"image-registry.openshift-image-registry.svc:5000/openshift/redis-exporter:latest","imagePullPolicy":"Always"},"redisLeader":{"serviceType":"ClusterIP"},"redisFollower":{"serviceType":"ClusterIP"},"storage":{"volumeClaimTemplate":{"spec":{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"1Gi"}}}}}}}]
     categories: 'Database, Storage'
     certified: 'false'
     createdAt: '15-06-2021'
@@ -185,13 +185,6 @@ spec:
                         port: 8081
                       initialDelaySeconds: 5
                       periodSeconds: 10
-                    resources:
-                      limits:
-                        cpu: 100m
-                        memory: 100Mi
-                      requests:
-                        cpu: 100m
-                        memory: 100Mi
                 terminationGracePeriodSeconds: 10
                 serviceAccount: redis-operator
                 serviceAccountName: redis-operator
