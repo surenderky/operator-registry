@@ -10,7 +10,7 @@ metadata:
       : \"POSTGRESQL_DATABASE\",\n      \"databasePassword\": \"postgres\",\n    \
       \  \"databasePasswordKeyEnvVar\": \"POSTGRESQL_PASSWORD\",\n      \"databaseStorageRequest\"\
       : \"1Gi\",\n      \"databaseUser\": \"postgres\",\n      \"databaseUserKeyEnvVar\"\
-      : \"POSTGRESQL_USER\",\n      \"image\": \"registry.redhat.io/rhel8/postgresql-10:latest\",\n\
+      : \"POSTGRESQL_USER\",\n      \"image\": \"image-registry.openshift-image-registry.svc:5000/openshift/postgres:dockerhub\",\n\
       \      \"size\": 1\n    }\n  },\n  {\n    \"apiVersion\": \"postgresql.dev4devs.com/v1alpha1\"\
       ,\n    \"kind\": \"Backup\",\n    \"metadata\": {\n      \"name\": \"backup\"\
       \n    },\n    \"spec\": {\n      \"awsAccessKeyId\": \"example-awsAccessKeyId\"\
@@ -627,13 +627,6 @@ spec:
                 image: image-registry.openshift-image-registry.svc:5000/openshift/postgresql-operator:latest
                 imagePullPolicy: Always
                 name: postgresql-operator
-                resources:
-                  limits:
-                    cpu: 60m
-                    memory: 128Mi
-                  requests:
-                    cpu: 30m
-                    memory: 64Mi
               serviceAccountName: postgresql-operator
     strategy: deployment
   installModes:
@@ -641,9 +634,9 @@ spec:
     type: OwnNamespace
   - supported: true
     type: SingleNamespace
-  - supported: false
+  - supported: true
     type: MultiNamespace
-  - supported: false
+  - supported: true
     type: AllNamespaces
   keywords:
   - postgresql
