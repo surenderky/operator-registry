@@ -10,7 +10,7 @@ metadata:
       : \"POSTGRESQL_DATABASE\",\n      \"databasePassword\": \"postgres\",\n    \
       \  \"databasePasswordKeyEnvVar\": \"POSTGRESQL_PASSWORD\",\n      \"databaseStorageRequest\"\
       : \"1Gi\",\n      \"databaseUser\": \"postgres\",\n      \"databaseUserKeyEnvVar\"\
-      : \"POSTGRESQL_USER\",\n      \"image\": \"image-registry.openshift-image-registry.svc:5000/openshift/postgres:dockerhub\",\n\
+      : \"POSTGRESQL_USER\",\n      \"image\": \"registry.redhat.io/rhel8/postgresql-96:latest\",\n\
       \      \"size\": 1\n    }\n  },\n  {\n    \"apiVersion\": \"postgresql.dev4devs.com/v1alpha1\"\
       ,\n    \"kind\": \"Backup\",\n    \"metadata\": {\n      \"name\": \"backup\"\
       \n    },\n    \"spec\": {\n      \"awsAccessKeyId\": \"example-awsAccessKeyId\"\
