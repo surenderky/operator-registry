@@ -20,7 +20,7 @@ metadata:
     capabilities: Full Lifecycle
     categories: Database
     certified: 'false'
-    containerImage: image-registry.openshift-image-registry.svc:5000/openshift/postgresql-operator:latest
+    containerImage: quay.io/wgxinke/postgresql-operator:latest
     createdAt: '2019-09-08T08:00:00Z'
     description: Operator in Go developed using the Operator Framework to package,
       install, configure and manage a PostgreSQL database. This project includes backup
@@ -624,7 +624,7 @@ spec:
                       fieldPath: metadata.name
                 - name: OPERATOR_NAME
                   value: postgresql-operator
-                image: image-registry.openshift-image-registry.svc:5000/openshift/postgresql-operator:latest
+                image: quay.io/wgxinke/postgresql-operator:latest
                 imagePullPolicy: Always
                 name: postgresql-operator
               serviceAccountName: postgresql-operator
