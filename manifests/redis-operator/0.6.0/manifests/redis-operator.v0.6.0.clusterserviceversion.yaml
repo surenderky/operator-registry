@@ -5,7 +5,7 @@ metadata:
   namespace: placeholder
   annotations:
     alm-examples: >-
-      [{"apiVersion":"redis.redis.opstreelabs.in/v1beta1","kind":"Redis","metadata":{"name":"redis-standalone"},"spec":{"redisExporter":{"enabled":true,"image":"image-registry.openshift-image-registry.svc:5000/openshift/redis-exporter:1.0","imagePullPolicy":"IfNotPresent","resources":{"requests":{"cpu":"100m","memory":"2048Mi"},"limits":{"cpu":"100m","memory":"100Mi"}}},"kubernetesConfig":{"image":"image-registry.openshift-image-registry.svc:5000/openshift/redis:6.2.5","imagePullPolicy":"IfNotPresent","resources":{"requests":{"cpu":"101m","memory":"100Mi"},"limits":{"cpu":"101m","memory":"100Mi"}},"redisSecret":{"name":"redis-secret","key":"password"},"serviceType":"LoadBalancer"},"redisConfig":{},"storage":{"volumeClaimTemplate":{"spec":{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"1Gi"}}}}}}},{"apiVersion":"redis.redis.opstreelabs.in/v1beta1","kind":"RedisCluster","metadata":{"name":"redis-cluster"},"spec":{"clusterSize":3,"kubernetesConfig":{"image":"image-registry.openshift-image-registry.svc:5000/openshift/redis:6.2.5","imagePullPolicy":"IfNotPresent","resources":{"requests":{"cpu":"101m","memory":"100Mi"},"limits":{"cpu":"101m","memory":"100Mi"}},"redisSecret":{"name":"redis-secret","key":"password"},"serviceType":"ClusterIP"},"redisExporter":{"enabled":true,"image":"image-registry.openshift-image-registry.svc:5000/openshift/redis-exporter:1.0","imagePullPolicy":"IfNotPresent","resources":{"requests":{"cpu":"100m","memory":"100Mi"},"limits":{"cpu":"100m","memory":"100Mi"}}},"redisLeader":{"serviceType":"ClusterIP"},"redisFollower":{"serviceType":"ClusterIP"},"storage":{"volumeClaimTemplate":{"spec":{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"1Gi"}}}}}}}]
+      [{"apiVersion":"redis.redis.opstreelabs.in/v1beta1","kind":"Redis","metadata":{"name":"redis-standalone"},"spec":{"redisExporter":{"enabled":true,"image":"image-registry.openshift-image-registry.svc:5000/openshift/redis-exporter:1.0","imagePullPolicy":"IfNotPresent","resources":{"requests":{"cpu":"100m","memory":"2048Mi"},"limits":{"cpu":"100m","memory":"2048Mi"}}},"kubernetesConfig":{"image":"image-registry.openshift-image-registry.svc:5000/openshift/redis:6.2.5","imagePullPolicy":"IfNotPresent","resources":{"requests":{"cpu":"101m","memory":"2048Mi"},"limits":{"cpu":"101m","memory":"2048Mi"}},"redisSecret":{"name":"redis-secret","key":"password"},"serviceType":"LoadBalancer"},"redisConfig":{},"storage":{"volumeClaimTemplate":{"spec":{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"1Gi"}}}}}}},{"apiVersion":"redis.redis.opstreelabs.in/v1beta1","kind":"RedisCluster","metadata":{"name":"redis-cluster"},"spec":{"clusterSize":3,"kubernetesConfig":{"image":"image-registry.openshift-image-registry.svc:5000/openshift/redis:6.2.5","imagePullPolicy":"IfNotPresent","resources":{"requests":{"cpu":"101m","memory":"2048Mi"},"limits":{"cpu":"101m","memory":"2048Mi"}},"redisSecret":{"name":"redis-secret","key":"password"},"serviceType":"ClusterIP"},"redisExporter":{"enabled":true,"image":"image-registry.openshift-image-registry.svc:5000/openshift/redis-exporter:1.0","imagePullPolicy":"IfNotPresent","resources":{"requests":{"cpu":"100m","memory":"2048Mi"},"limits":{"cpu":"100m","memory":"2048Mi"}}},"redisLeader":{"serviceType":"ClusterIP"},"redisFollower":{"serviceType":"ClusterIP"},"storage":{"volumeClaimTemplate":{"spec":{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"1Gi"}}}}}}}]
     categories: 'Database, Storage'
     certified: 'false'
     createdAt: '15-06-2021'
@@ -188,10 +188,10 @@ spec:
                 resources:
                       limits:
                         cpu: 100m
-                        memory: 100Mi
+                        memory: 2048Mi
                       requests:
                         cpu: 100m
-                        memory: 100Mi
+                        memory: 2048Mi
                 terminationGracePeriodSeconds: 10
                 serviceAccount: redis-operator
                 serviceAccountName: redis-operator
