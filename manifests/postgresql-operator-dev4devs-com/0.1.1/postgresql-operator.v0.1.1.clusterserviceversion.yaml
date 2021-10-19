@@ -20,7 +20,7 @@ metadata:
     capabilities: Full Lifecycle
     categories: Database
     certified: 'false'
-    containerImage: quay.io/wgxinke/postgresql-operator:latest
+    containerImage: quay.io/ibm/postgresql-operator-s390x:0.1.1
     createdAt: '2019-09-08T08:00:00Z'
     description: Operator in Go developed using the Operator Framework to package,
       install, configure and manage a PostgreSQL database. This project includes backup
@@ -624,7 +624,7 @@ spec:
                       fieldPath: metadata.name
                 - name: OPERATOR_NAME
                   value: postgresql-operator
-                image: quay.io/wgxinke/postgresql-operator:latest
+                image: quay.io/ibm/postgresql-operator-s390x:0.1.1
                 imagePullPolicy: Always
                 name: postgresql-operator
               serviceAccountName: postgresql-operator

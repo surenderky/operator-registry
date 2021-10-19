@@ -5,14 +5,14 @@ metadata:
   namespace: placeholder
   annotations:
     alm-examples: >-
-      [{"apiVersion":"redis.redis.opstreelabs.in/v1beta1","kind":"Redis","metadata":{"name":"redis-standalone"},"spec":{"kubernetesConfig":{"image":"image-registry.openshift-image-registry.svc:5000/openshift/redis:6.2.5","imagePullPolicy":"IfNotPresent","resources":{"requests":{"cpu":"101m","memory":"2048Mi"},"limits":{"cpu":"101m","memory":"2048Mi"}},"serviceType":"ClusterIP"},"storage":{"volumeClaimTemplate":{"spec":{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"1Gi"}}}}},"redisExporter":{"enabled":false,"image":"image-registry.openshift-image-registry.svc:5000/openshift/redis-exporter:1.0"}}},{"apiVersion":"redis.redis.opstreelabs.in/v1beta1","kind":"RedisCluster","metadata":{"name":"redis-cluster"},"spec":{"clusterSize":3,"kubernetesConfig":{"image":"image-registry.openshift-image-registry.svc:5000/openshift/redis:6.2.5","imagePullPolicy":"IfNotPresent","resources":{"requests":{"cpu":"101m","memory":"2048Mi"},"limits":{"cpu":"101m","memory":"2048Mi"}},"serviceType":"ClusterIP"},"redisExporter":{"enabled":false,"image":"image-registry.openshift-image-registry.svc:5000/openshift/redis-exporter:1.0"},"redisLeader":{"serviceType":"ClusterIP"},"redisFollower":{"serviceType":"ClusterIP"},"storage":{"volumeClaimTemplate":{"spec":{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"1Gi"}}}}}}}]
+      [{"apiVersion":"redis.redis.opstreelabs.in/v1beta1","kind":"Redis","metadata":{"name":"redis-standalone"},"spec":{"kubernetesConfig":{"image":"quay.io/ibm/redis-s390x:6.2.5","imagePullPolicy":"IfNotPresent","resources":{"requests":{"cpu":"101m","memory":"2048Mi"},"limits":{"cpu":"101m","memory":"2048Mi"}},"serviceType":"ClusterIP"},"storage":{"volumeClaimTemplate":{"spec":{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"1Gi"}}}}},"redisExporter":{"enabled":false,"image":"quay.io/ibm/redis-exporter-s390x:1.0"}}},{"apiVersion":"redis.redis.opstreelabs.in/v1beta1","kind":"RedisCluster","metadata":{"name":"redis-cluster"},"spec":{"clusterSize":3,"kubernetesConfig":{"image":"quay.io/ibm/redis-s390x:6.2.5","imagePullPolicy":"IfNotPresent","resources":{"requests":{"cpu":"101m","memory":"2048Mi"},"limits":{"cpu":"101m","memory":"2048Mi"}},"serviceType":"ClusterIP"},"redisExporter":{"enabled":false,"image":"quay.io/ibm/redis-exporter-s390x:1.0"},"redisLeader":{"serviceType":"ClusterIP"},"redisFollower":{"serviceType":"ClusterIP"},"storage":{"volumeClaimTemplate":{"spec":{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"1Gi"}}}}}}}]
     categories: 'Database, Storage'
     certified: 'false'
     createdAt: '03-09-2021'
     description: >-
       A Golang based redis operator that will make/oversee Redis
       standalone/cluster mode setup on top of the Kubernetes.
-    containerImage: 'quay.io/wgxinke/redis-operator:v0.8.0'
+    containerImage: 'quay.io/ibm/redis-operator-s390x:0.8.0'
     support: ''
     capabilities: Seamless Upgrades
     repository: 'https://github.com/ot-container-kit/redis-operator'
@@ -172,7 +172,7 @@ spec:
                       - /manager
                     args:
                       - '--leader-elect'
-                    image: 'quay.io/wgxinke/redis-operator:v0.8.0'
+                    image: 'quay.io/ibm/redis-operator-s390x:0.8.0'
                     imagePullPolicy: Always
                     name: manager
                     securityContext:
