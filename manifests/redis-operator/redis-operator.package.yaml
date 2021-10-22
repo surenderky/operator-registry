@@ -1,5 +1,5 @@
 packageName: redis-operator
 channels:
-- name: clusterwide-alpha
+- name: stable
   currentCSV: redis-operator.v0.8.0
-defaultChannel: clusterwide-alpha
+defaultChannel: stable
